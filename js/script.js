@@ -8,3 +8,7 @@ const body = document.querySelector("body"),
       modeSwitch.addEventListener("click", () =>{
         body.classList.toggle('dark')
       });
+
+      toggle.addEventListener("click", ()=>{
+        sidebar.classList.toggle("close");
+      })
