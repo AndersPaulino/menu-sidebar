@@ -36,13 +36,11 @@ body {
     background-color: var(--body-color);
     transition: var(--tran-04);
 }
-
 header {
     display: flex;
     align-items: center;
     position: relative;
 }
-
 .sidebar {
     position: fixed;
     top: 0;
@@ -51,6 +49,7 @@ header {
     height: 100%;
     background-color: var(--sidebar-color);
     transition: var(--tran-05);
+    z-index: 100;
 }
 .sidebar.close{
     width: 60px;
@@ -82,14 +81,17 @@ header {
 .toggle {
     position: absolute;
     top: 50%;
-    right: -20px;
-    transform: translateY(-50%);
+    right: -18px;
+    transform: translateY(-50%)rotate(180deg);
     width: 25px;
     height: 25px;
     background: var(--primary-color);
     font-size: 25px;
     border-radius: 50%;
     color: var(--sidebar-color);
+}  
+.sidebar.close .toggle{
+    transform: translateY(-50%);
 }
 .bx-chevron-right{
     color: #FFF;
@@ -167,7 +169,6 @@ header {
 }
 .menu-bar .mode{
     position: relative;
-    border-radius: 6px;
     background: var(--primary-color-light);
 }
 .menu-bar .mode .moon-sun{
@@ -178,8 +179,16 @@ header {
 }
 .menu-bar .mode i{
     position: absolute;
+    transition: var(--tran-03);
 }
 .menu-bar .mode i.sun{
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+body.dark .menu-bar .mode i.moon{
     opacity: 0;
 }
 .menu-bar .mode .toggle-switch{
@@ -213,4 +222,18 @@ header {
 
 body.dark .switch::before{
     left: 24px;
+}
+
+.dash {
+    position: relative;
+    color: #ccc;
+    left: 350px;
+    height: 100vh;
+    width: calc(100% - 350px);
+    transition: var(--tran-05);
+}
+
+.sidebar.close ~ .dash {
+    left: 60px;
+    width: calc(100% - 60px);
 }
