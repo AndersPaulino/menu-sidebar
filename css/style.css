@@ -232,6 +232,12 @@ body.dark .switch::before{
     width: calc(100% - 350px);
     transition: var(--tran-05);
 }
+.dash .text{
+    position: relative;
+    color: #695CFE;
+    margin: 10px;
+    left: 100px;
+}
 
 .sidebar.close ~ .dash {
     left: 60px;
